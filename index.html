@@ -1,0 +1,71 @@
+<html>
+
+<head>
+	<title> Bday app by avim </title>
+	<style>
+	*{font-size: 50px; font-family: ink free;}
+	body{background-color: azure;}
+	.btn{border-radius:20%;width:30%;background-color:white;}
+	h1{background-color:black;color:white}
+	</style>
+</head>
+
+
+<body>
+<center>
+	<h1> Bday App </h1>
+	<form onsubmit="Operations()">
+	<input type="submit" value="Add" class="btn" />
+	<input type="submit" value="Remove" class="btn"/>
+	<input type="submit" value="Show" class="btn"/>
+	</form>
+	<h2 id="msg" />
+
+	<script>
+	let names =["Avi","Shinde","Tejas"];
+	function Operations()
+	{
+	event.preventDefault();
+	let msg = document.getElementById("msg");
+	let ele= document.activeElement.value;
+
+	if(ele=="Add")
+	{
+		let n = prompt("Enter Name");
+		if(n!="")	
+			{
+			names.push(n);
+			msg.innerHTML=names;
+			}
+
+	}
+	else if(ele=="Remove")
+	{
+	let n =prompt("enter element to be remove");
+	if(n!="")
+		{
+		let pos =names.indexOf(n);
+		if(pos==-1)
+			{
+			alert(n+" element not found");
+			}
+		else
+			{
+			names.splice(pos,1);
+			alert(n+ " removed");
+			}
+		msg.innerHTML=names;
+		}
+	}
+	else if(ele=="Show")
+	{
+	msg.innerHTML=names;
+	}
+	}
+
+	</script>
+</center>
+</body>
+
+
+</html>
